@@ -43,28 +43,44 @@ function Navbar() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 flex justify-between items-center">
           <Button
             variant="link"
-            className="text-xl font-bold p-0"
+            className="text-xl font-bold p-0 cursor-pointer hover:text-violet-700"
             onClick={() => scrollToSection("hero")}
           >
             MS
           </Button>
 
           <div className="hidden md:flex items-center gap-6">
-            <Button variant="link" onClick={() => scrollToSection("about")}>
+            <Button
+              variant="link"
+              className=" cursor-pointer hover:text-violet-700"
+              onClick={() => scrollToSection("about")}
+            >
               About
             </Button>
-            <Button variant="link" onClick={() => scrollToSection("skills")}>
+            <Button
+              variant="link"
+              className=" cursor-pointer hover:text-violet-700"
+              onClick={() => scrollToSection("skills")}
+            >
               Skills
             </Button>
-            <Button variant="link" onClick={() => scrollToSection("projects")}>
+            <Button
+              variant="link"
+              className=" cursor-pointer hover:text-violet-700"
+              onClick={() => scrollToSection("projects")}
+            >
               Projects
             </Button>
-            <Button variant="link" onClick={() => scrollToSection("contact")}>
+            <Button
+              variant="link"
+              className=" cursor-pointer hover:text-violet-700"
+              onClick={() => scrollToSection("contact")}
+            >
               Contact
             </Button>
             <Button
               variant="default"
-              className="rounded-full"
+              className="rounded-full text-white bg-violet-600 hover:bg-violet-700 cursor-pointer"
               onClick={() => scrollToSection("contact")}
             >
               Hire Me
@@ -74,7 +90,7 @@ function Navbar() {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="md:hidden cursor-pointer hover:text-violet-700"
             onClick={toggleMenu}
           >
             <Menu className="h-6 w-6" />
@@ -84,14 +100,14 @@ function Navbar() {
 
       {/* Mobile navbar */}
       <div
-        className={`fixed inset-0 z-50 bg-background flex flex-col md:hidden transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 z-50 bg-white/30 backdrop-blur-xl flex flex-col md:hidden transition-transform duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex justify-between items-center p-4 border-b">
+        <div className="flex justify-between items-center p-4 border-b border-gray-200">
           <Button
             variant="link"
-            className="text-xl font-bold p-0"
+            className="text-xl font-bold p-0 cursor-pointer hover:text-violet-700"
             onClick={() => {
               scrollToSection("hero");
               toggleMenu();
@@ -99,7 +115,12 @@ function Navbar() {
           >
             MS
           </Button>
-          <Button variant="ghost" size="icon" onClick={toggleMenu}>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="cursor-pointer hover:text-violet-700"
+            onClick={toggleMenu}
+          >
             <X className="h-6 w-6" />
           </Button>
         </div>
@@ -107,7 +128,7 @@ function Navbar() {
         <div className="flex flex-col gap-2 p-4">
           <Button
             variant="ghost"
-            className="justify-start text-lg py-6"
+            className="justify-start text-lg py-6 cursor-pointer hover:text-violet-700"
             onClick={() => {
               scrollToSection("about");
               toggleMenu();
@@ -117,7 +138,7 @@ function Navbar() {
           </Button>
           <Button
             variant="ghost"
-            className="justify-start text-lg py-6"
+            className="justify-start text-lg py-6 cursor-pointer hover:text-violet-700"
             onClick={() => {
               scrollToSection("skills");
               toggleMenu();
@@ -127,7 +148,7 @@ function Navbar() {
           </Button>
           <Button
             variant="ghost"
-            className="justify-start text-lg py-6"
+            className="justify-start text-lg py-6 cursor-pointer hover:text-violet-700"
             onClick={() => {
               scrollToSection("projects");
               toggleMenu();
@@ -137,7 +158,7 @@ function Navbar() {
           </Button>
           <Button
             variant="ghost"
-            className="justify-start text-lg py-6"
+            className="justify-start text-lg py-6 cursor-pointer hover:text-violet-700"
             onClick={() => {
               scrollToSection("contact");
               toggleMenu();
@@ -148,7 +169,8 @@ function Navbar() {
 
           <Button
             variant="default"
-            className="mt-4"
+            size="lg"
+            className="mt-4 text-white bg-violet-600 cursor-pointer hover:bg-violet-700"
             onClick={() => {
               scrollToSection("contact");
               toggleMenu();
