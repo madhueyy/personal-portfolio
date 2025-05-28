@@ -1,11 +1,17 @@
 "use client";
 
-import { motion, useInView, useScroll, useTransform } from "motion/react";
+import {
+  motion,
+  useAnimation,
+  useInView,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import Navbar from "./components/navbar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import ParallaxLayer from "./components/parallax-layer";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { User, Layers, CodeXml, Github, Linkedin, Mail } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ProjectCard from "./components/project-card";
@@ -41,6 +47,23 @@ export default function Home() {
   const skillsInView = useInView(skillsRef, { once: true });
   const contactInView = useInView(contactRef, { once: true });
 
+  const controls = useAnimation();
+
+  useEffect(() => {
+    const sequence = async () => {
+      await controls.start({
+        opacity: 1,
+        width: "100%",
+        transition: { duration: 0.3, ease: [0.2, 1, 0.2, 1], delay: 0.7 },
+      });
+      await controls.start({
+        height: "100%",
+        transition: { duration: 0.7, ease: [0.2, 1, 0.2, 1] },
+      });
+    };
+    sequence();
+  }, [controls]);
+
   return (
     <div className="bg-gradient-to-b from-background to-background/80 relative overflow-hidden">
       <FigmaCursor />
@@ -66,9 +89,9 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-white rounded-full mix-blend-multiply filter blur-3xl "></div>
         </ParallaxLayer>
 
-        <div className="flex flex-col max-w-7xl z-10 space-y-8 text-center">
+        <div className="flex flex-col max-w-7xl z-10 space-y-4 md:space-y-8 text-center">
           <motion.div
-            className="inline-block animate-float"
+            className="hidden md:inline-block animate-float"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -85,28 +108,18 @@ export default function Home() {
 
           <div className="relative inline-block">
             <motion.div
-              className="absolute -inset-4 border-2 border-violet-600 bg-violet-600/10 rounded-sm"
+              className="hidden md:inline-block absolute -inset-4 border-2 border-violet-600 bg-violet-600/10 rounded-sm"
               initial={{
                 width: 0,
                 height: 0,
+                top: 0,
                 left: 0,
                 opacity: 0,
               }}
-              animate={{
-                width: "100%",
-                height: "100%",
-                top: 0,
-                left: 0,
-                opacity: [0, 1, 1, 1],
-              }}
-              transition={{
-                delay: 0.8,
-                duration: 1,
-                ease: [0.22, 1, 0.36, 1],
-              }}
+              animate={controls}
             >
               {[
-                { position: "-top-1 -left-1", delay: 0 },
+                { position: "-top-1 -left-1", delay: 0.1 },
                 { position: "-top-1 -right-1", delay: 0.1 },
                 { position: "-bottom-1 -right-1", delay: 0.2 },
                 { position: "-bottom-1 -left-1", delay: 0.3 },
@@ -118,7 +131,7 @@ export default function Home() {
               ))}
             </motion.div>
             <motion.h1
-              className="text-5xl md:text-7xl font-bold text-gray-900 px-4 py-2"
+              className="text-4xl md:text-7xl font-bold text-violet-600 md:text-gray-900 px-4 md:py-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -198,7 +211,7 @@ export default function Home() {
       {/* About me */}
       <section
         id="about"
-        className="py-20 px-4 sm:px-6 relative max-w-7xl mx-auto"
+        className="py-20 px-6 md:px-4 relative max-w-7xl mx-auto"
       >
         <motion.div
           className="flex flex-col md:flex-row gap-12 items-center"
@@ -285,7 +298,7 @@ export default function Home() {
       {/* Skills */}
       <section
         id="skills"
-        className="py-20 px-4 sm:px-6 bg-white relative overflow-hidden"
+        className="py-20 px-6 md:px-4 bg-white relative overflow-hidden"
       >
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
@@ -374,7 +387,7 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="py-20 px-4 sm:px-6 relative">
+      <section id="projects" className="py-20 px-6 md:px-4 relative">
         <ParallaxLayer
           speed={0.05}
           direction="vertical"
@@ -441,14 +454,12 @@ export default function Home() {
           </motion.h2>
 
           <motion.p
-            className="text-xl text-zinc-500 mb-8 max-w-2xl mx-auto"
+            className="text-md md:text-xl text-zinc-500 mb-8 max-w-2xl mx-auto"
             initial="initial"
             animate={contactInView ? "animate" : "initial"}
             variants={slideRight}
           >
-            I'm currently looking for frontend software engineering internship
-            opportunities. If you think I'd be a good fit for your team, or if
-            you have any questions, feel free to reach out!
+            Feel free to reach out!
           </motion.p>
 
           <motion.div

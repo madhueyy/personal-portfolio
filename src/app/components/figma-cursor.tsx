@@ -28,7 +28,7 @@ export function FigmaCursor() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-normal"
+      className="hidden md:block fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-normal"
       style={{
         x: mousePosition.x,
         y: mousePosition.y,
