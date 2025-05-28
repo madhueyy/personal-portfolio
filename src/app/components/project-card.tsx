@@ -4,7 +4,13 @@ import { useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Github,
+  ExternalLink,
+  ChevronLeft,
+  ChevronRight,
+  Figma,
+} from "lucide-react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 
@@ -124,12 +130,14 @@ export default function ProjectCard({
             initial={{ width: "0%" }}
             animate={{ width: isHovered ? "100%" : "0%" }}
             transition={{ duration: 0.3 }}
-            className="absolute top-0 left-0 h-0.5 bg-violet-600"
+            className="absolute top-0 left-0 h-1 bg-violet-500"
           />
 
           <div>
             <h4 className="text-xl font-bold">{title}</h4>
-            <p className="text-muted-foreground mt-2">{description}</p>
+            <p className="text-muted-foreground mt-2 text-start">
+              {description}
+            </p>
           </div>
 
           <div className="flex flex-wrap gap-2">
@@ -144,19 +152,34 @@ export default function ProjectCard({
             ))}
           </div>
 
-          <div className="flex space-x-4 mr-auto">
-            <Button
-              size="sm"
-              variant="outline"
-              className="text-white rounded-full bg-violet-600 hover:bg-violet-700"
-              asChild
-              data-cursor-text="Code"
-            >
-              <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                <Github className="w-4 h-4 mr-2" />
-                Code
-              </a>
-            </Button>
+          <div className="flex space-x-4">
+            {githubUrl.includes("figma") ? (
+              <Button
+                size="sm"
+                variant="outline"
+                className="text-white rounded-full bg-orange-600 hover:bg-orange-700"
+                asChild
+                data-cursor-text="Figma"
+              >
+                <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+                  <Figma className="w-4 h-4 mr-2" />
+                  Figma
+                </a>
+              </Button>
+            ) : (
+              <Button
+                size="sm"
+                variant="outline"
+                className="text-white rounded-full bg-violet-600 hover:bg-violet-700"
+                asChild
+                data-cursor-text="Code"
+              >
+                <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+                  <Github className="w-4 h-4 mr-2" />
+                  Code
+                </a>
+              </Button>
+            )}
 
             <Button
               size="sm"

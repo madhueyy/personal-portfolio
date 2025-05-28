@@ -35,6 +35,12 @@ export const slideRight = {
   },
 };
 
+export const fadeInUp = {
+  initial: { opacity: 0, y: 60 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: "easeOut" },
+};
+
 export const colorMap = {
   green: "text-green-600",
   orange: "text-orange-600",
@@ -129,7 +135,7 @@ export const projects = [
   {
     title: "Sentifi",
     description:
-      "A responsive dashboard for an e-commerce platform with data visualization, user management, and inventory tracking features.",
+      "An event intelligence platform that analyzes company sentiment and tracks real-time stock price movements. Built with a serverless backend on AWS and a Next.js frontend, it collects data from Reddit, Yahoo Finance, and Finnhub, performs sentiment analysis using Llama 3.3, and alerts users when price thresholds are crossed.",
     images: [
       "/Sentifi.png",
       "/Sentifi2.png",
@@ -137,14 +143,22 @@ export const projects = [
       "/Sentifi4.png",
       "/Sentifi5.png",
     ],
-    tags: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
-    githubUrl: "#",
-    liveUrl: "#",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Python",
+      "AWS S3",
+      "MongoDB",
+    ],
+    githubUrl:
+      "https://www.figma.com/design/vfJnLBfyRXKcrAr41lZN3J/Frontend?node-id=0-1&p=f&t=Xg8BVgIfGzOcwz0S-0",
+    liveUrl: "https://sentifi.vercel.app/",
   },
   {
     title: "Planterior",
     description:
-      "A responsive dashboard for an e-commerce platform with data visualization, user management, and inventory tracking features.",
+      "A responsive indoor plant shopping website with a built-in recommendation system. Users can browse, search, and filter plants by categories like price, popularity, and name. Includes detailed product pages and a seamless checkout experience, with efficient state management to track selected items.",
     images: [
       "/Planterior.png",
       "/Planterior2.png",
@@ -156,14 +170,15 @@ export const projects = [
       "/Planterior8.png",
       "/Planterior9.png",
     ],
-    tags: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
-    githubUrl: "#",
-    liveUrl: "#",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    githubUrl:
+      "https://www.figma.com/design/SUuqqbwXmjCK7WGqbdSnFe/Planterior?t=Xg8BVgIfGzOcwz0S-0",
+    liveUrl: "https://planterior.vercel.app/",
   },
   {
     title: "LeetCraft",
     description:
-      "A responsive dashboard for an e-commerce platform with data visualization, user management, and inventory tracking features.",
+      "A gamified LeetCode companion app that motivates users through XP, levels, character unlocks, and leaderboards based on problem-solving activity. Integrates with LeetCode via GraphQL to sync user progress in real time.",
     images: [
       "/LeetCraft.png",
       "/LeetCraft2.png",
@@ -172,14 +187,15 @@ export const projects = [
       "/LeetCraft5.png",
       "/LeetCraft6.png",
     ],
-    tags: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
-    githubUrl: "#",
-    liveUrl: "#",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "GraphQL"],
+    githubUrl:
+      "https://www.figma.com/design/yEUnmCXh9Nv5b2Z1D9Dh2c/Training-Program-25T1---Group-Grass?node-id=0-1&p=f&t=OmtAgwClqG2UVQYL-0",
+    liveUrl: "https://www.leetcraft.dev/signin",
   },
   {
     title: "MacOS Inspired Portfolio",
     description:
-      "A responsive dashboard for an e-commerce platform with data visualization, user management, and inventory tracking features.",
+      "A personal portfolio website inspired by the MacOS interface, complete with a desktop-style layout, dock navigation, and folder-based project organization. Showcases skills, languages, and projects in an interactive environment that mimics the Mac user experience. Designed for a unique, playful, yet functional presentation of my development work.",
     images: [
       "/MacOS.png",
       "/MacOS2.png",
@@ -187,15 +203,15 @@ export const projects = [
       "/MacOS4.png",
       "/MacOS5.png",
     ],
-    tags: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
-    githubUrl: "#",
-    liveUrl: "#",
+    tags: ["React", "TypeScript", "Tailwind CSS"],
+    githubUrl: "https://github.com/madhueyy/portfolio-2",
+    liveUrl: "https://madhus-portfolio-2.vercel.app/",
   },
 
   {
     title: "Airtable Clone",
     description:
-      "A responsive dashboard for an e-commerce platform with data visualization, user management, and inventory tracking features.",
+      "A full-featured Airtable-inspired application with Google authentication, allowing users to create bases, manage tables, and build customizable views. Includes advanced table functionality like filtering, sorting, searching, and hiding fields using TanStack Table. Supports infinite scroll and handles over 100k rows with efficient pagination.",
     images: [
       "/Airtable.png",
       "/Airtable2.png",
@@ -203,30 +219,45 @@ export const projects = [
       "/Airtable4.png",
       "/Airtable5.png",
     ],
-    tags: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "tRPC",
+      "TanStack Table",
+
+      "Prisma",
+    ],
     githubUrl: "#",
-    liveUrl: "#",
+    liveUrl: "https://airtable-zeta.vercel.app/home",
   },
 
   {
     title: "SmartScribe",
     description:
-      "A responsive dashboard for an e-commerce platform with data visualization, user management, and inventory tracking features.",
+      "An AI-powered study companion that transforms lecture videos and transcripts into interactive, multi-modal learning materials. SmartScribe automatically generates structured topic summaries, flashcards for active recall, and visual knowledge graphs to map concept relationships. Includes text-to-speech for auditory learning, PDF export for offline access, and supports diverse learning styles through visual, textual, and audio content.",
     images: [
       "/SmartScribe.png",
       "/SmartScribe2.png",
       "/SmartScribe3.png",
       "/SmartScribe4.png",
     ],
-    tags: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
-    githubUrl: "#",
-    liveUrl: "#",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Cosmograph",
+      "Express",
+      "PostgreSQL",
+      "ChromaDB",
+    ],
+    githubUrl: "https://github.com/dzl-i/hackabyte",
+    liveUrl: "https://devpost.com/software/studyscribe-eo73sa",
   },
 
   {
     title: "Fruit Focus",
     description:
-      "A responsive dashboard for an e-commerce platform with data visualization, user management, and inventory tracking features.",
+      "An interactive web app that helps users discover seasonal fruits available across different regions of Australia. Features a powerful search system that filters fruits by name, nutritional content, or seasonality. Includes comprehensive fruit profiles with detailed macro and micronutrient data to support healthy and informed choices.",
     images: [
       "/FruitFocus.png",
       "/FruitFocus2.png",
@@ -235,8 +266,9 @@ export const projects = [
       "/FruitFocus5.png",
       "/FruitFocus6.png",
     ],
-    tags: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
-    githubUrl: "#",
-    liveUrl: "#",
+    tags: ["React", "TypeScript", "Mantine UI"],
+    githubUrl:
+      "https://www.figma.com/design/jFadqUyKAE4zOSHPjEMbO5/DEVT2-Bard?node-id=109-105&p=f&t=dDGV7Vd0BXiu6xmo-0",
+    liveUrl: "https://fruit-focus-frontend.vercel.app/",
   },
 ];

@@ -72,18 +72,11 @@ function Navbar() {
               Projects
             </Button>
             <Button
-              variant="link"
-              className=" cursor-pointer hover:text-violet-700"
-              onClick={() => scrollToSection("contact")}
-            >
-              Contact
-            </Button>
-            <Button
               variant="default"
               className="rounded-full text-white bg-violet-600 hover:bg-violet-700 cursor-pointer"
               onClick={() => scrollToSection("contact")}
             >
-              Hire Me
+              Contact Me
             </Button>
           </div>
 
@@ -156,16 +149,6 @@ function Navbar() {
           >
             Projects
           </Button>
-          <Button
-            variant="ghost"
-            className="justify-start text-lg py-6 cursor-pointer hover:text-violet-700"
-            onClick={() => {
-              scrollToSection("contact");
-              toggleMenu();
-            }}
-          >
-            Contact
-          </Button>
 
           <Button
             variant="default"
@@ -176,7 +159,7 @@ function Navbar() {
               toggleMenu();
             }}
           >
-            Hire Me
+            Contact Me
           </Button>
         </div>
       </div>
