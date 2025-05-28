@@ -56,17 +56,17 @@ export const bgColorMap = {
 };
 
 export const bgColorMap2 = {
-  green: "bg-green-50",
-  orange: "bg-orange-50",
-  purple: "bg-purple-50",
-  blue: "bg-blue-50",
+  green: "bg-green-100",
+  orange: "bg-orange-100",
+  purple: "bg-purple-100",
+  blue: "bg-blue-100",
 };
 
 export const borderColorMap = {
-  green: "border-green-200",
-  orange: "border-orange-200",
-  purple: "border-purple-200",
-  blue: "border-blue-200",
+  green: "border-green-500",
+  orange: "border-orange-500",
+  purple: "border-purple-500",
+  blue: "border-blue-500",
 };
 
 export const skillsAndTechnologies = [

@@ -38,8 +38,8 @@ export default function Home() {
   const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
 
   const aboutInView = useInView(aboutRef, { once: false });
-  const skillsInView = useInView(skillsRef, { once: false, margin: "-100px" });
-  const contactInView = useInView(contactRef, { once: false });
+  const skillsInView = useInView(skillsRef, { once: true });
+  const contactInView = useInView(contactRef, { once: true });
 
   return (
     <div className="bg-gradient-to-b from-background to-background/80 relative overflow-hidden">
@@ -55,7 +55,7 @@ export default function Home() {
           <motion.div
             className="absolute inset-0 opacity-20"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.2 }}
+            animate={{ opacity: 0.4 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <DotGrid />
@@ -218,28 +218,28 @@ export default function Home() {
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                 </div>
 
-                <div className="font-mono text-md text-gray-500">
+                <div className="font-geistmono text-md text-gray-500">
                   <div className="text-violet-600">const developer = {"{"}</div>
                   <div className="ml-4">
-                    name: <span className="text-orange-400">"Madhu"</span>,
+                    name: <span className="text-amber-500">"Madhu"</span>,
                   </div>
                   <div className="ml-4">
                     status:{" "}
-                    <span className="text-orange-400">
+                    <span className="text-amber-500">
                       "Final Year Software Engineering Student"
                     </span>
                     ,
                   </div>
                   <div className="ml-4">
                     interests: [
-                    <span className="text-orange-400">
+                    <span className="text-amber-500">
                       "React", "UI/UX Design", "Innovation"
                     </span>
                     ],
                   </div>
                   <div className="ml-4">
                     goal:{" "}
-                    <span className="text-orange-400">
+                    <span className="text-amber-500">
                       "Build intuitive digital experiences"
                     </span>
                   </div>
@@ -291,7 +291,7 @@ export default function Home() {
           <motion.div
             className="absolute inset-0 opacity-20"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.2 }}
+            animate={{ opacity: 0.4 }}
             transition={{ duration: 2, delay: 1 }}
           >
             <DotGrid />
@@ -313,7 +313,7 @@ export default function Home() {
           >
             {skillsAndTechnologies.map((skill, index) => (
               <motion.div key={index} variants={scaleIn}>
-                <Card className="py-6 space-y-2 border-1 border-gray-100/50 bg-white/0 backdrop-blur-[1px] hover:bg-white transition-all duration-300 h-full shadow-xl shadow-black/5">
+                <Card className="py-6 space-y-2 border-1 border-gray-100 bg-white/70 backdrop-blur-[2px] hover:bg-white transition-all duration-300 h-full shadow-xl shadow-black/5">
                   <CardHeader className="text-center">
                     <motion.div
                       className={`w-12 h-12 ${
@@ -422,7 +422,7 @@ export default function Home() {
           <motion.div
             className="absolute inset-0 opacity-20"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.2 }}
+            animate={{ opacity: 0.4 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <DotGrid />
@@ -505,11 +505,8 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-6 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-2">
-            <span className="font-bold">Madhu Shrestha</span>
-            <span className="text-muted-foreground">© 2025</span>
-          </div>
+        <div className="max-w-7xl text-gray-500 mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+          <p>Madhu Shrestha © 2025</p>
 
           <div className="flex gap-4">
             <Button
@@ -517,6 +514,7 @@ export default function Home() {
               size="icon"
               asChild
               data-cursor-text="GitHub"
+              className="hover:text-violet-600"
             >
               <a
                 href="https://github.com/madhueyy"
@@ -533,6 +531,7 @@ export default function Home() {
               size="icon"
               asChild
               data-cursor-text="LinkedIn"
+              className="hover:text-violet-600"
             >
               <a
                 href="https://linkedin.com/in/madhu-shrestha"
@@ -549,6 +548,7 @@ export default function Home() {
               size="icon"
               asChild
               data-cursor-text="Email"
+              className="hover:text-violet-600"
             >
               <a href="mailto:madhu.shrestha666@gmail.com" aria-label="Email">
                 <Mail className="w-5 h-5" />
