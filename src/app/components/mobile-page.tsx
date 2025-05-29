@@ -381,36 +381,17 @@ export default function MobileHome() {
         ref={contactRef}
       >
         <div className="flex flex-col max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 items-center text-center">
-          <motion.h2
-            className="flex flex-row gap-x-2 items-center text-3xl font-bold mb-6"
-            initial="initial"
-            animate={contactInView ? "animate" : "initial"}
-            variants={slideLeft}
-          >
+          <h2 className="flex flex-row gap-x-2 items-center text-3xl font-bold mb-6">
             <Mail className="text-violet-600" size={28} />
             Contact Me
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            className="text-md md:text-xl text-zinc-500 mb-8 max-w-2xl mx-auto"
-            initial="initial"
-            animate={contactInView ? "animate" : "initial"}
-            variants={slideRight}
-          >
+          <p className="text-md md:text-xl text-zinc-500 mb-8 max-w-2xl mx-auto">
             Feel free to reach out!
-          </motion.p>
+          </p>
 
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-            variants={staggerContainer}
-            initial="initial"
-            animate={contactInView ? "animate" : "initial"}
-          >
-            <motion.div
-              variants={scaleIn}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div>
               <Button
                 size="lg"
                 className="rounded-full cursor-pointer text-white bg-violet-600 backdrop-blur-xl border border-white/20 hover:bg-violet-700 shadow-xl shadow-violet-600/20"
@@ -426,13 +407,9 @@ export default function MobileHome() {
                   LinkedIn
                 </a>
               </Button>
-            </motion.div>
+            </div>
 
-            <motion.div
-              variants={scaleIn}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <div>
               <Button
                 variant="outline"
                 size="lg"
@@ -447,8 +424,8 @@ export default function MobileHome() {
                   Email
                 </a>
               </Button>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
