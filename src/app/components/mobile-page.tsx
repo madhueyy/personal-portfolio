@@ -7,14 +7,14 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import Navbar from "./components/navbar";
+import Navbar from "./navbar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import ParallaxLayer from "./components/parallax-layer";
-import { useEffect, useRef, useState } from "react";
+import ParallaxLayer from "./parallax-layer";
+import { useEffect, useRef } from "react";
 import { User, Layers, CodeXml, Github, Linkedin, Mail } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import ProjectCard from "./components/project-card";
+import ProjectCard from "./project-card";
 import {
   staggerContainer,
   scaleIn,
@@ -26,26 +26,15 @@ import {
   borderColorMap,
   skillsAndTechnologies,
   projects,
-} from "../lib/constants";
-import { FigmaCursor } from "./components/figma-cursor";
-import DotGrid from "./components/dot-grid";
-import MobileHome from "./components/mobile-page";
+} from "../../lib/constants";
+import { FigmaCursor } from "./figma-cursor";
+import DotGrid from "./dot-grid";
 
-export default function Home() {
+export default function MobileHome() {
   const targetRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef(null);
-  const skillsRef = useRef(null);
   const contactRef = useRef(null);
 
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start start", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
-
-  const aboutInView = useInView(aboutRef, { once: false });
-  const skillsInView = useInView(skillsRef, { once: true });
   const contactInView = useInView(contactRef, { once: true });
 
   const controls = useAnimation();
@@ -64,21 +53,6 @@ export default function Home() {
     };
     sequence();
   }, [controls]);
-
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  if (isMobile) {
-    return <MobileHome />;
-  }
 
   return (
     <div className="bg-gradient-to-b from-background to-background/80 relative overflow-hidden">
@@ -229,16 +203,11 @@ export default function Home() {
         id="about"
         className="bg-white py-20 px-6 md:px-4 relative w-full mx-auto"
       >
-        <motion.div
+        <div
           className="flex flex-col md:flex-row gap-12 max-w-7xl mx-auto items-center"
           ref={aboutRef}
         >
-          <motion.div
-            className="md:w-2/5"
-            initial="initial"
-            animate={aboutInView ? "animate" : "initial"}
-            variants={slideLeft}
-          >
+          <div className="md:w-2/5">
             <div className="bg-card border border-gray-200 p-8 transform rotate-2 hover:rotate-0 transition-transform duration-500 rounded-xl shadow-lg">
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
@@ -276,14 +245,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="md:w-3/5 space-y-6"
-            initial="initial"
-            animate={aboutInView ? "animate" : "initial"}
-            variants={slideRight}
-          >
+          <div className="md:w-3/5 space-y-6">
             <div className="inline-flex items-center gap-2">
               <User className="text-violet-600" size={28} />
               <h2 className="text-3xl font-bold">About Me</h2>
@@ -307,8 +271,8 @@ export default function Home() {
               combine creativity with code and allow me to grow as both a
               developer and designer.
             </p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* Skills */}
@@ -322,50 +286,30 @@ export default function Home() {
             <h2 className="text-3xl font-bold">Skills & Technologies</h2>
           </div>
 
-          <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-            variants={staggerContainer}
-            initial="initial"
-            animate={skillsInView ? "animate" : "initial"}
-            ref={skillsRef}
-          >
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {skillsAndTechnologies.map((skill, index) => (
-              <motion.div key={index} variants={scaleIn}>
+              <div key={index}>
                 <Card className="py-6 space-y-2 border-1 border-gray-100 bg-white/70 backdrop-blur-[2px] hover:bg-white transition-all duration-300 h-full shadow-xl shadow-black/5">
                   <CardHeader className="text-center">
-                    <motion.div
+                    <div
                       className={`w-12 h-12 ${
                         bgColorMap[skill.color as keyof typeof bgColorMap]
                       } rounded-lg flex items-center justify-center mx-auto mb-4`}
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ duration: 0.3 }}
                     >
                       <skill.icon
                         className={`h-6 w-6 ${
                           colorMap[skill.color as keyof typeof colorMap]
                         }`}
                       />
-                    </motion.div>
+                    </div>
 
                     <CardTitle className="text-lg">{skill.title}</CardTitle>
                   </CardHeader>
 
                   <CardContent>
-                    <motion.div
-                      className="grid grid-cols-1 sm:grid-cols-2 gap-2"
-                      variants={staggerContainer}
-                      initial="initial"
-                      animate={skillsInView ? "animate" : "initial"}
-                    >
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {skill.skills.map((item, skillIndex) => (
-                        <motion.div
-                          key={skillIndex}
-                          variants={{
-                            initial: { opacity: 0, x: -20 },
-                            animate: { opacity: 1, x: 0 },
-                          }}
-                          transition={{ delay: skillIndex * 0.1 }}
-                        >
+                        <div key={skillIndex}>
                           <Badge
                             variant="secondary"
                             className={`rounded-full ${
@@ -380,14 +324,14 @@ export default function Home() {
                           >
                             {item}
                           </Badge>
-                        </motion.div>
+                        </div>
                       ))}
-                    </motion.div>
+                    </div>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
