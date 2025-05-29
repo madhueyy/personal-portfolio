@@ -289,7 +289,7 @@ export default function MobileHome() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {skillsAndTechnologies.map((skill, index) => (
               <div key={index}>
-                <Card className="py-6 space-y-2 border-1 border-gray-100 bg-white/70 backdrop-blur-[2px] hover:bg-white transition-all duration-300 h-full shadow-xl shadow-black/5">
+                <Card className="py-6 space-y-4 border-1 border-gray-100 bg-white/70 backdrop-blur-[2px] hover:bg-white transition-all duration-300 h-full shadow-xl shadow-black/5">
                   <CardHeader className="text-center">
                     <div
                       className={`w-12 h-12 ${
@@ -307,7 +307,7 @@ export default function MobileHome() {
                   </CardHeader>
 
                   <CardContent>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div className="grid grid-cols-2 gap-4">
                       {skill.skills.map((item, skillIndex) => (
                         <div key={skillIndex}>
                           <Badge
