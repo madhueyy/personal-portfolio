@@ -69,24 +69,24 @@ export default function Home() {
       <FigmaCursor />
       <Navbar />
 
+      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute inset-0 opacity-20"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.6 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <DotGrid />
+        </motion.div>
+      </div> */}
+
       {/* Hero */}
       <section
         id="hero"
         className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden"
       >
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            className="absolute inset-0 opacity-20"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.4 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <DotGrid />
-          </motion.div>
-        </div>
-
         <ParallaxLayer speed={0.2} className="absolute inset-0 z-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-white rounded-full mix-blend-multiply filter blur-3xl "></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-172 h-172 bg-white rounded-full mix-blend-multiply filter blur-3xl "></div>
         </ParallaxLayer>
 
         <div className="flex flex-col max-w-7xl z-10 space-y-4 md:space-y-8 text-center">
@@ -211,10 +211,10 @@ export default function Home() {
       {/* About me */}
       <section
         id="about"
-        className="py-20 px-6 md:px-4 relative max-w-7xl mx-auto"
+        className="bg-white py-20 px-6 md:px-4 relative w-full mx-auto"
       >
         <motion.div
-          className="flex flex-col md:flex-row gap-12 items-center"
+          className="flex flex-col md:flex-row gap-12 max-w-7xl mx-auto items-center"
           ref={aboutRef}
         >
           <motion.div
@@ -298,19 +298,8 @@ export default function Home() {
       {/* Skills */}
       <section
         id="skills"
-        className="py-20 px-6 md:px-4 bg-white relative overflow-hidden"
+        className="py-20 px-6 md:px-4 relative overflow-hidden"
       >
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            className="absolute inset-0 opacity-20"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.4 }}
-            transition={{ duration: 2, delay: 1 }}
-          >
-            <DotGrid />
-          </motion.div>
-        </div>
-
         <div className="flex flex-col max-w-7xl mx-auto gap-y-12 relative z-10">
           <div className="inline-flex justify-center items-center gap-2">
             <Layers className="text-violet-600" size={26} />
@@ -387,7 +376,7 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="py-20 px-6 md:px-4 relative">
+      <section id="projects" className="py-20 px-6 md:px-4 bg-white relative">
         <ParallaxLayer
           speed={0.05}
           direction="vertical"
@@ -431,17 +420,6 @@ export default function Home() {
         className="py-20 px-4 sm:px-6 bg-muted/30 relative overflow-hidden"
         ref={contactRef}
       >
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            className="absolute inset-0 opacity-20"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.4 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <DotGrid />
-          </motion.div>
-        </div>
-
         <div className="flex flex-col max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 items-center text-center">
           <motion.h2
             className="flex flex-row gap-x-2 items-center text-3xl font-bold mb-6"
@@ -515,7 +493,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-6 px-4 sm:px-6">
+      <footer className="py-6 px-4 sm:px-6 bg-white backdrop-blur-2xl">
         <div className="max-w-7xl text-gray-500 mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <p>Madhu Shrestha © 2025</p>
 
