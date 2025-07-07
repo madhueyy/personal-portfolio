@@ -79,6 +79,7 @@ export const skillsAndTechnologies = [
       "CSS",
       "React",
       "Next.js",
+      "Vue.js",
       "tRPC",
       "Tailwind CSS",
       "Material UI",
